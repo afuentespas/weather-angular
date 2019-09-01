@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-6">
+        <input-select 
+            label="Min. Temperature" 
+            type="number" 
+            [disabled]="inputsDisabled" 
+            [inputModel]="minValue" 
+            [selectModel]="minSelect" 
+            (inputsChange)="minInputsOnChange($event)"
+            (selectsChange)="minSelectOnChanges($event)">
+        </input-select>
+    </div>
+    <div class="col-md-6">
+        <input-select 
+            label="Max. Temperature" 
+            type="number" 
+            [disabled]="inputsDisabled" 
+            [inputModel]="maxValue" 
+            [selectModel]="maxSelect" 
+            (inputsChange)="maxInputsOnChange($event)"
+            (selectsChange)="maxSelectOnChanges($event)">
+        </input-select>
+    </div>
+</div>

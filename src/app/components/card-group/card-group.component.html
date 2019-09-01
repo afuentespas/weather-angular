@@ -1,0 +1,3 @@
+<div *ngFor="let location of locations" class="col-md-3" [ngClass]="{'d-none': location.hide}">
+    <card-weather [location]="location"></card-weather>
+</div>

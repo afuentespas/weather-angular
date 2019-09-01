@@ -1,0 +1,16 @@
+<div class="form-group">
+    <label for="exampleInputEmail1">Weather State</label>
+    <select class="custom-select" [disabled]="inputsDisabled" [(ngModel)]="stateSelected" (change)="selectChanges()">
+        <option value="none">All States</option>
+        <option value="sn">Snow</option>
+        <option value="sl">Sleet</option>
+        <option value="h">Hail</option>
+        <option value="t">Thunderstorm</option>
+        <option value="hr">Heavy Rain</option>
+        <option value="lr">Light Rain</option>
+        <option value="s">Showers</option>
+        <option value="hc">Heavy Cloud</option>
+        <option value="lc">Light Cloud</option>
+        <option value="c">Clear</option>
+    </select>
+</div>

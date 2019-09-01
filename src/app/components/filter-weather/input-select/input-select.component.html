@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label for="formGroupExampleInput">{{ label }}</label>
+    <div class="input-group">
+        <input type="number" aria-label="First name" class="form-control f-input" [(ngModel)]="inputModel" [disabled]="disabled" (change)="valueInputChanges()">
+        <select class="custom-select l-name" [(ngModel)]="selectModel" [disabled]="disabled" (change)="valueSelectChanges()">
+            <option value="less">Less</option>
+            <option value="equals">Equals</option>
+            <option value="greater">Greater</option>
+        </select>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Enter a city</label>
+        <div class="input-group mb-3">
+            <input type="search" class="form-control" id="search" aria-describedby="searchHelp"
+                placeholder="Enter a city" [ngClass]="{'is-invalid' : isInvalid}"
+                name="inputCity" [(ngModel)]="inputCity">
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="button" id="button-addon2" (click)="searchCities()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+</form>

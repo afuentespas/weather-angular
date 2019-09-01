@@ -1,0 +1,43 @@
+<div class="card-header text-center">
+    <strong>{{ location?.title }}</strong>
+</div>
+<div class="text-center mt-3">
+    <img src="https://www.metaweather.com/static/img/weather/png/64/{{ location.weatherDay?.weather_state_abbr }}.png"
+        class="card-img-top" alt="{{ location.weatherDay?.weather_state_name }}">
+</div>
+<div class="card-body">
+    <h5 class="card-title text-center">{{ location.weatherDay?.weather_state_name }}</h5>
+</div>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <h2 class="h6 text-center mb-3">Temparature</h2>
+        <div class="row">
+            <div class="col-6">
+                <i class="fas fa-arrow-down text-primary mr-3"></i>{{ location.weatherDay?.min_temp | number:'1.0-0' }} ℃
+            </div>
+            <div class="col-6 text-right">
+                <i class="fas fa-arrow-up text-danger mr-3"></i>{{ location.weatherDay?.max_temp | number:'1.0-0' }} ℃
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <h2 class="h6 text-center mb-3">Wind</h2>
+        <div class="row">
+            <div class="col-6">
+                <i class="far fa-compass mr-3"></i>{{ location.weatherDay?.wind_direction_compass }}
+            </div>
+            <div class="col-6 text-right">
+                <i class="fas fa-tachometer-alt mr-3"></i>{{ location.weatherDay?.wind_speed | number:'1.0-0' }} mph
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <h2 class="h6 text-center mb-3">Others</h2>
+        <strong>Air Pressure</strong>: {{ location.weatherDay?.air_pressure | number:'1.0-0' }} mbar<hr>
+        <strong>Humidity</strong>: {{ location.weatherDay?.humidity | number:'1.0-0' }}%<hr>
+        <strong>Visibility</strong>: {{ location.weatherDay?.visibility | number:'1.0-0' }} miles
+    </li>
+</ul>
+<div class="card-footer">
+    <small class="text-muted">Predictability: {{location.weatherDay?.predictability | number:'1.0-0' }}%</small>
+</div>
