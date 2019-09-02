@@ -8,13 +8,13 @@
             <filter-weather [filterDisabled]="!(consolidatedWeatherObservable | async)"  [locations]="locations"></filter-weather>
         </div>
     </div>
-    <card-group *ngIf="(consolidatedWeatherObservable | async)" [locations]="locations"></card-group>
     <ng-container *ngIf="!(consolidatedWeatherObservable | async) && citiesLoading">
         <div class="text-center mt-5">
             <i class="fas fa-spinner fa-spin fa-5x mb-5"></i><br>
             <p class="h1">Loading...</p>
         </div>
     </ng-container>
+    <card-group *ngIf="(consolidatedWeatherObservable | async)" [locations]="locations"></card-group>
     <ng-container *ngIf="locations !== undefined && locations.length == 0">
         <div class="h4">Cities Not Found</div>
     </ng-container>
