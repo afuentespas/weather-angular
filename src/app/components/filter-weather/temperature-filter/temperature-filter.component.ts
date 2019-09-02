@@ -40,7 +40,6 @@ export class TemperatureFilterComponent implements OnInit {
 
   private temperatureComparator(inputValue: number, selectOption: string, temperatureCityValue: number){
     let hide = false;
-    console.log(inputValue + " : "+ temperatureCityValue);
     if(inputValue !== null && inputValue !== undefined && inputValue.toString() != ""){
         switch(`${selectOption}`){
           case 'less': hide = inputValue < temperatureCityValue ;break;

@@ -5,14 +5,17 @@
             <searcher-cities (locationsReady)="locationsLoad($event)"></searcher-cities>
         </div>
         <div class="col-8">
-            <filter-weather [filterDisabled]="!(consolidatedWeatherObservable | async)" [locations]="locations"></filter-weather>
+            <filter-weather [filterDisabled]="!(consolidatedWeatherObservable | async)"  [locations]="locations"></filter-weather>
         </div>
     </div>
-    <div *ngIf="!(consolidatedWeatherObservable | async) && citiesLoading">
+    <card-group *ngIf="(consolidatedWeatherObservable | async)" [locations]="locations"></card-group>
+    <ng-container *ngIf="!(consolidatedWeatherObservable | async) && citiesLoading">
         <div class="text-center mt-5">
             <i class="fas fa-spinner fa-spin fa-5x mb-5"></i><br>
             <p class="h1">Loading...</p>
         </div>
-    </div>
-    <card-group *ngIf="(consolidatedWeatherObservable | async)" [locations]="locations"></card-group>
+    </ng-container>
+    <ng-container *ngIf="locations !== undefined && locations.length == 0">
+        <div class="h4">Cities Not Found</div>
+    </ng-container>
 </div>

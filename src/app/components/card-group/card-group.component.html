@@ -1,3 +1,8 @@
-<div *ngFor="let location of locations" class="col-md-3" [ngClass]="{'d-none': location.hide}">
-    <card-weather [location]="location"></card-weather>
-</div>
+<ng-container *ngIf="hasCities; else noData">
+    <div *ngFor="let location of locations" class="col-md-3" [ngClass]="{'d-none': location.hide}">
+        <card-weather [location]="location"></card-weather>
+    </div>
+</ng-container>
+<ng-template #noData>
+    <div class="col-12 h4">No cities matches.</div>
+</ng-template>

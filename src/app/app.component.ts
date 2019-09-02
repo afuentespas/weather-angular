@@ -20,22 +20,24 @@ export class AppComponent {
 
   citiesLoading: boolean;
 
-  @ViewChild(FilterWeatherComponent, {static: false})
+  @ViewChild(FilterWeatherComponent, { static: false })
   private temperatureComponent: FilterWeatherComponent;
 
-  constructor(private cityWeatherService: CityWeatherService){}
+  constructor(private cityWeatherService: CityWeatherService) { }
 
-  locationsLoad(locations: Location[]){
+  locationsLoad(locations: Location[]) {
     this.temperatureComponent.resetFilters();
-    this.citiesLoading = true;
-      locations.forEach( async (location: Location) => {
+    if (locations.length > 0) {
+      this.citiesLoading = true;
+      locations.forEach(async (location: Location) => {
         let cws = this.cityWeatherService.getWeatherCity(location.woeid);
         this.consolidatedWeatherObservable = forkJoin(cws);
-        cws.subscribe( (weatherCity: ConsolidatedWeather) => {
-            location.weatherDay = weatherCity.consolidated_weather[0];
-          });
+        cws.subscribe((weatherCity: ConsolidatedWeather) => {
+          location.weatherDay = weatherCity.consolidated_weather[0];
+        });
       });
-      this.locations = locations;
+    }
+    this.locations = locations;
   }
 
 }

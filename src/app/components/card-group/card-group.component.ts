@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Location } from 'src/app/interfaces/location';
 
 @Component({
   selector: 'card-group',
@@ -12,8 +13,19 @@ export class CardGroupComponent implements OnInit {
 
   @Input() locations: Location[];
 
+  hasCities: boolean = false;
+
   constructor() { }
 
   ngOnInit() { }
+
+  ngDoCheck(){
+    let citiesHideCount = 0;
+    this.locations.forEach( (location: Location) => {
+      if(location.hide) citiesHideCount++;
+    });
+    if(this.locations.length == citiesHideCount) this.hasCities = false;
+    else this.hasCities = true;
+  }
 
 }
